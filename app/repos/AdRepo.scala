@@ -12,7 +12,7 @@ import reactivemongo.bson.{BSONDocument, BSONObjectID}
 
 import scala.concurrent.{ExecutionContext, Future}
 
-trait WidgetRepo {
+trait AdRepo {
   def find()(implicit ec: ExecutionContext): Future[List[JsObject]]
 
   def select(selector: BSONDocument)(implicit ec: ExecutionContext): Future[Option[JsObject]]
@@ -24,9 +24,9 @@ trait WidgetRepo {
   def save(document: BSONDocument)(implicit ec: ExecutionContext): Future[WriteResult]
 }
 
-class WidgetRepoImpl @Inject()(reactiveMongoApi: ReactiveMongoApi) extends WidgetRepo {
+class AdRepoImpl @Inject()(reactiveMongoApi: ReactiveMongoApi) extends AdRepo {
 
-  def collection = reactiveMongoApi.db.collection[JSONCollection]("widgets");
+  val collection = reactiveMongoApi.db.collection[JSONCollection]("widgets");
 
   override def find()(implicit ec: ExecutionContext): Future[List[JsObject]] = {
     val genericQueryBuilder = collection.find(Json.obj());
