@@ -13,7 +13,8 @@ import repos.AdRepoImpl
  */
 //class AdController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 @Singleton
-  class AdController @Inject()(val reactiveMongoApi: ReactiveMongoApi) extends Controller with MongoController with ReactiveMongoComponents {
+class AdController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+//class AdController @Inject()(val reactiveMongoApi: ReactiveMongoApi) extends Controller with MongoController with ReactiveMongoComponents {
 
 
   //,class PlayerController @Inject()(val reactiveMongoApi: ReactiveMongoApi) extends Controller with MongoController with ReactiveMongoComponents {
@@ -32,22 +33,21 @@ import repos.AdRepoImpl
       Ok(s"Welcome player $playerId")
     }
   }
-
-  def create = Action.async(BodyParsers.parse.json) { implicit request =>
-    val name = (request.body \ Name).as[String]
-    val description = (request.body \ Description).as[String]
-    val author = (request.body \ Author).as[String]
-    adRepo.save(BSONDocument(
-      Name -> name,
-      Description -> description,
-      Author -> author
-    )).map(result => Created)
-  }
+//
+//  def create = Action.async(BodyParsers.parse.json) { implicit request =>
+//    val name = (request.body \ Name).as[String]
+//    val description = (request.body \ Description).as[String]
+//    val author = (request.body \ Author).as[String]
+//    adRepo.save(BSONDocument(
+//      Name -> name,
+//      Description -> description,
+//      Author -> author
+//    )).map(result => Created)
+//  }
 
   def delete(id: String) = TODO
 
 
-  val adRepo = new AdRepoImpl(reactiveMongoApi)
 }
 
 

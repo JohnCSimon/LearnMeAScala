@@ -14,10 +14,10 @@ libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.0
 
 libraryDependencies ++= Seq(
   guice,
-  "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.0" % Test,
+  "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.1" % Test,
   "org.mongodb" %% "casbah" % "3.1.1",
   specs2 % Test,
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.12.5-play26"
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.12.6-play26"
 
 // , "org.slf4j" % "slf4j-simple" % "1.6.4"
 )

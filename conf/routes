@@ -4,10 +4,9 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /player/:playerId           controllers.PlayerController.get(playerId: Int )
-GET     /                           controllers.HomeController.index
-DELETE  /player/:id           controllers.PlayerController.delete(id: String)
-
+#GET     /ad/:id           controllers.AdController.get(adId: Int )
+#DELETE  /ad/:id           controllers.AdController.delete(id: String)
+#POST    /ad/               controllers.AdController.create
 
 
 
